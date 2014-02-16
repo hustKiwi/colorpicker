@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>colorpicker demo</title>
+    <link rel="stylesheet" type="text/css" href="css/lib/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/colorpicker.css">
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/require.js"></script>
+    <style>
+    body {
+        padding: 25px;
+        font: 14px Helvetica,Arial,sans-serif;
+        line-height: 1.5;
+    }
+    h1 {
+        font-size: 36px;
+        font-weight: bold;
+        padding-bottom: 10px;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    .item {
+        *zoom: 1;
+    }
+    .item:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+    .main {
+        width: 960px;
+        margin: 0 auto;
+    }
+    .colorpicker {
+        border: 1px solid #eee;
+        padding: 15px;
+        background: #fff;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>colorpicker demo</h1>
+        <div class="container"></div>
+    </div>
+    <script>
+    require.config({
+        baseUrl: 'js/',
+        shim: {
+            'colorpicker': [
+                'lib/underscore',
+                'lib/jquery-ui.slider'
+            ]
+        }
+    });
+
+    require(['colorpicker'], function(picker) {
+        $body = $('body');
+        $('.container').html(picker({
+            change: function(hex) {
+                $body.css('background', hex);
+            }
+        }));
+    });
+    </script>
+</body>
+</html>
