@@ -1,0 +1,332 @@
+/*! jQuery UI - v1.10.3 - 2013-05-26
+* http://jqueryui.com
+* Includes: jquery.ui.core.css, jquery.ui.slider.css
+* Copyright 2013 jQuery Foundation and other contributors Licensed MIT */
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+  display: none;
+}
+
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
+}
+
+.ui-helper-clearfix:after {
+  clear: both;
+}
+
+.ui-helper-clearfix {
+  min-height: 0;
+  /* support: IE7 */
+}
+
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  filter: Alpha(Opacity=0);
+}
+
+.ui-front {
+  z-index: 100;
+}
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+  cursor: default !important;
+}
+
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.ui-slider {
+  position: relative;
+  text-align: left;
+}
+
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+  width: 1.2em;
+  height: 1.2em;
+  cursor: default;
+}
+
+.ui-slider .ui-slider-range {
+  position: absolute;
+  z-index: 1;
+  font-size: .7em;
+  display: block;
+  border: 0;
+  background-position: 0 0;
+}
+
+/* For IE8 - See #6727 */
+.ui-slider.ui-state-disabled .ui-slider-handle,
+.ui-slider.ui-state-disabled .ui-slider-range {
+  filter: inherit;
+}
+
+.ui-slider-horizontal {
+  height: .8em;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -.3em;
+  margin-left: -.6em;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+  top: 0;
+  height: 100%;
+}
+
+.ui-slider-horizontal .ui-slider-range-min {
+  left: 0;
+}
+
+.ui-slider-horizontal .ui-slider-range-max {
+  right: 0;
+}
+
+.ui-slider-vertical {
+  width: .8em;
+  height: 100px;
+}
+
+.ui-slider-vertical .ui-slider-handle {
+  left: -.3em;
+  margin-left: 0;
+  margin-bottom: -.6em;
+}
+
+.ui-slider-vertical .ui-slider-range {
+  left: 0;
+  width: 100%;
+}
+
+.ui-slider-vertical .ui-slider-range-min {
+  bottom: 0;
+}
+
+.ui-slider-vertical .ui-slider-range-max {
+  top: 0;
+}
+
+.colorpicker {
+  width: 400px;
+}
+.colorpicker label {
+  width: 5em;
+  color: #999999;
+  text-align: right;
+  margin-right: 6px;
+  display: inline;
+  float: left;
+  color: #333333;
+  margin-right: 6px;
+}
+.colorpicker .ui-slider {
+  display: inline;
+  float: left;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 310px;
+  height: 10px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0 inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0 inset;
+  margin: 10px 0 0 5px;
+  cursor: pointer;
+}
+.colorpicker .color-bg {
+  background: url("../img/color.jpg") no-repeat;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/color.png', sizingMethod="crop");
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10px;
+  background-repeat: no-repeat;
+}
+.colorpicker .saturation-bar .mask {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 310px;
+  height: 10px;
+  background: url("../img/saturation.png") no-repeat 0 0;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/saturation.png', sizingMethod="crop");
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.colorpicker .llightness-bar .mask {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 310px;
+  height: 10px;
+  background: url("../img/llightness.png") no-repeat 0 0;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/llightness.png', sizingMethod="crop");
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.colorpicker .ui-slider-handle {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 16px;
+  height: 14px;
+  background: url("../img/handle.png") no-repeat;
+  overflow: hidden;
+  cursor: pointer;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/handle.png', sizingMethod="crop");
+  top: 2px;
+  margin-left: -8px;
+}
+.colorpicker .item {
+  height: 32px;
+  line-height: 32px;
+}
+.colorpicker .recommend {
+  height: auto;
+  line-height: auto;
+  margin-top: 10px;
+  padding-top: 22px;
+  border-top: 1px solid #e6e6e6;
+}
+.colorpicker .colors {
+  *zoom: 1;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-right: -10px;
+}
+.colorpicker .colors:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.colorpicker .colors li {
+  display: inline;
+  float: left;
+  cursor: pointer;
+  margin-right: 8px;
+  position: relative;
+}
+.colorpicker .colors li i {
+  display: inline;
+  float: left;
+  width: 25px;
+  height: 25px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 inset;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 1px 0 inset;
+  border: 1px solid #cccccc;
+}
+.colorpicker .colors li i.transparent {
+  background: #cccccc url("../img/transparent.png") no-repeat 0 0;
+  _background-image: none;
+  _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/transparent.png', sizingMethod="crop");
+}
+.colorpicker .colors li .selected {
+  background: url("../img/selected.png") no-repeat;
+  width: 14px;
+  height: 13px;
+  merge: light;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  display: none;
+}
+.colorpicker .colors li.on {
+  padding: 2px;
+  border: 1px solid #5d5d5d;
+}
+.colorpicker .colors li.on i {
+  width: 19px;
+  height: 19px;
+}
+.colorpicker .colors li.on .selected {
+  display: block;
+}

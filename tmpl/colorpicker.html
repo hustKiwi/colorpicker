@@ -1,0 +1,35 @@
+<div class="colorpicker">
+    <div class="item">
+        <label>选择颜色</label>
+        <div class="color-bar"></div>
+    </div>
+    <div class="item">
+        <label>调整饱和度</label>
+        <div class="saturation-bar"></div>
+    </div>
+    <div class="item">
+        <label>调整亮度</label>
+        <div class="llightness-bar"></div>
+    </div>
+    <div class="item recommend">
+        <label>推荐色彩</label>
+        <ul class="colors">
+        <% _.each(colors, function(hsl, i) { %>
+            <li>
+        <%
+            if (_.isArray(hsl)) {
+                var h = hsl[0] / 360,
+                    s = hsl[1],
+                    l = hsl[2],
+                    cls = colorUtils.hsl2hex(h, s, l).substr(1);
+        %>
+                <i class="color-<%- cls %>" data-hsl="<%- JSON.stringify([h, s, l]) %>" style="background: <%- colorUtils.hsl2hex(h, s, l) %>">
+            <% } else if (hsl === 'transparent') { %>
+                <i class="color-transparent transparent" data-hsl="<%- hsl %>">
+            <% } %>
+                </i><span class="selected"></span>
+            </li>
+        <% }); %>
+        </ul>
+    </div>
+</div>
